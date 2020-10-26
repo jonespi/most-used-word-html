@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { getLinkData } from  './services'
+import { getLinkData, postIPTrack } from  './services'
 import { parseTextMap } from './utils'
 
 const App = () => {
@@ -14,6 +14,7 @@ const App = () => {
     e.preventDefault();
     setIsLoading(true);
     resetState();
+    postIPTrack({url});
     try { 
       const text = await getLinkData(url); 
       if (text.length > 0) {
@@ -123,12 +124,11 @@ const App = () => {
             margin: 0 auto;
             padding: 0 auto;
             max-width: 1024px;
-            height: 60vh;
             display: flex;
           }
           .text-view {
             flex: 2;
-            height: 800px;
+            height: 75vh;
             overflow: scroll;
           }
           .text-view span {

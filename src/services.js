@@ -3,7 +3,7 @@ import { hasTextContent, noNewLines } from './utils'
 
 export const getLinkData = async (url) => {
     const response = await axios.get(`https://cors-anywhere.herokuapp.com/${url}`);
-    const data = response.data
+    const data = response.data;
     const span = document.createElement('span');
     span.innerHTML = data;
     const children = span.children;
@@ -14,4 +14,13 @@ export const getLinkData = async (url) => {
         }
     };
     return text.join(" ").replace(/[^a-zA-Z ]/g, " ").split(" ").filter(n => noNewLines(n));
+}
+
+export const postIPTrack = async ({ url }) => {
+    // const response = await axios.post(`http://my-api.com/track`, {
+    //     url
+    // });
+    // const json = await response.json();
+    // return json;
+    return;
 }
