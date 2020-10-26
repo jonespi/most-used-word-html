@@ -66,6 +66,9 @@ const App = () => {
           )
         }
       </form>
+      {hasError && (
+        <div className="error">There was an issue with your URL. Please try a different one or try again.</div>
+      )}
       <div className="content">
         {textView && (
           <div className="text-view">
@@ -102,9 +105,6 @@ const App = () => {
           </div>
         )}
       </div>
-      {hasError && (
-        <div className="error">There was an issue with your URL. Please try a different one or try again.</div>
-      )}
       <style jsx>
         {`
           * {
